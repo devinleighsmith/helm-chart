@@ -1,0 +1,3 @@
+- Support livenessProbe, readinessProbe, startupProbe.
+- Support service account usage.
+- Support namespace usage.
