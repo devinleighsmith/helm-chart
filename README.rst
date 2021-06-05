@@ -505,3 +505,8 @@ Upload size limit
 
 - https://github.com/nginxinc/kubernetes-ingress/tree/release-1.7/deployments/helm-chart
 - https://cloud.ibm.com/docs/containers?topic=containers-ingress_annotation
+
+
+Credits
+=======
+Beaker icon by https://www.flaticon.com/authors/bqlqn
