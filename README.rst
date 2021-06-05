@@ -1,3 +1,17 @@
+.. image:: https://assets.gitlab-static.net/mayan-edms/helm-chart/raw/master/_static/mayan_labs_logo.png
+   :alt: Mayan Labs logo
+
+This repository is part of the Mayan Labs projects.
+
+These are projects that are not yet complete or were created for a specific
+use. These are early releases.
+
+Experience with Mayan EDMS and programming concepts are required to use
+Mayan Labs projects.
+
+Mayan Labs projects are not General Availability and are only
+supported via the commercial support offerings (https://www.mayan-edms.com/support/).
+
 ============
 Installation
 ============
