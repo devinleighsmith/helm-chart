@@ -300,6 +300,7 @@ extraContainers:
       targetCPUUtilizationPercentage: 80
       # targetMemoryUtilizationPercentage: 80
     # nameOverride: frontend
+    enabled: false
     environment:
       - name: MAYAN_QUEUE_LIST
         value: "queue_name"

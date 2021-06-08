@@ -1,4 +1,5 @@
 {{- range $container, $containerData := .Values.extraContainers }}
+{{- if $containerData.enabled }}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -47,4 +48,5 @@ spec:
         - name: mayan-tmp
           emptyDir: {}
 ---
+{{- end }}
 {{- end }}
