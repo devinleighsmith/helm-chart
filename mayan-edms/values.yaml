@@ -247,9 +247,9 @@ workers:
     nameSuffix: worker-c
     replicaCount: 2
     resources:
-      limits:
-        cpu: "125m"
-        memory: "1.25Gi"
+      limits: {}
+        # cpu: "125m"
+        # memory: "1.25Gi"
       # requests:
       #   cpu: 100m
       #   memory: 128Mi
@@ -276,6 +276,39 @@ workers:
       limits:
         cpu: "125m"
         memory: "1.25Gi"
+      # requests:
+      #   cpu: 100m
+      #   memory: 128Mi
+    securityContext: {}
+      # capabilities:
+      #   drop:
+      #   - ALL
+      # readOnlyRootFilesystem: true
+      # runAsNonRoot: true
+      # runAsUser: 1000
+      # fsGroup: 999
+
+
+extraContainers:
+  worker-importer:
+    args:
+      - run_worker
+    autoscaling:
+      enabled: false
+      minReplicas: 1
+      maxReplicas: 100
+      targetCPUUtilizationPercentage: 80
+      # targetMemoryUtilizationPercentage: 80
+    # nameOverride: frontend
+    environment:
+      - name: MAYAN_QUEUE_LIST
+        value: "queue_name"
+    nameSuffix: worker-importer
+    replicaCount: 1
+    resources:
+      limits: {}
+      #  cpu: "125m"
+      #  memory: "1.25Gi"
       # requests:
       #   cpu: 100m
       #   memory: 128Mi
