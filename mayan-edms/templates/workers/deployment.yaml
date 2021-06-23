@@ -26,6 +26,7 @@ spec:
           args:
             - run_worker
             - {{ $workerData.internalName }}
+            {{- if $workerData.extraArguments }}{{- toYaml $workerData.extraArguments | nindent 12 }}{{- end }}
           envFrom:
             - secretRef:
                 name: {{ include "mayan.secretsName" $ }}
