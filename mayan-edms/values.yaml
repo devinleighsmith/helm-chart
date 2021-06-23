@@ -191,6 +191,7 @@ workers:
       targetCPUUtilizationPercentage: 80
       # targetMemoryUtilizationPercentage: 80
     # nameOverride: frontend
+    extraArguments: []
     internalName: worker_a
     nameSuffix: worker-a
     replicaCount: 2
@@ -217,6 +218,7 @@ workers:
       targetCPUUtilizationPercentage: 80
       # targetMemoryUtilizationPercentage: 80
     # nameOverride: frontend
+    extraArguments: []
     internalName: worker_b
     nameSuffix: worker-b
     replicaCount: 2
@@ -243,6 +245,7 @@ workers:
       targetCPUUtilizationPercentage: 80
       # targetMemoryUtilizationPercentage: 80
     # nameOverride: frontend
+    extraArguments: []
     internalName: worker_c
     nameSuffix: worker-c
     replicaCount: 2
@@ -269,13 +272,14 @@ workers:
       targetCPUUtilizationPercentage: 80
       # targetMemoryUtilizationPercentage: 80
     # nameOverride: frontend
+    extraArguments: []
     internalName: worker_d
     nameSuffix: worker-d
     replicaCount: 1
     resources:
-      limits:
-        cpu: "125m"
-        memory: "1.25Gi"
+      limits: {}
+        # cpu: "125m"
+        # memory: "1.25Gi"
       # requests:
       #   cpu: 100m
       #   memory: 128Mi
@@ -329,9 +333,9 @@ extraContainers:
 
 beat:
   resources:
-    limits:
-      cpu: "125m"
-      memory: "500Mi"
+    limits: {}
+      #cpu: "125m"
+      #memory: "500Mi"
 
 
 #################
@@ -363,9 +367,9 @@ flower:
     #      - flower.mayan.minikube
   replicaCount: 1
   resources:
-    requests:
-      cpu: "125m"
-      memory: "128Mi"
+    requests: {}
+      #cpu: "125m"
+      #memory: "128Mi"
   securityContext: {}
     # capabilities:
     #   drop:
