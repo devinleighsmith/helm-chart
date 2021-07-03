@@ -75,5 +75,11 @@ Generate an unique name for each domain of a release
 */}}
 {{- define "mayan.tlsUniqueName" -}}
 {{ include "mayan.fullname" . }}-{{ .Values.letsencrypt.domain | replace "." "-" }}-{{- if .Values.letsencrypt.production }}production{{ else }}staging{{- end }}
+{{- end }}
 
+{{/*
+Generate an unique secret name for each domain of a release
+*/}}
+{{- define "mayan.tlsSecretUniqueName" -}}
+secret-{{ include "mayan.fullname" . }}-{{ .Values.letsencrypt.domain | replace "." "-" }}-{{- if .Values.letsencrypt.production }}production{{ else }}staging{{- end }}
 {{- end }}
