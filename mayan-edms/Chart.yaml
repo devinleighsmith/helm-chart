@@ -4,7 +4,7 @@ dependencies:
   - name: minio
     condition: minio.enabled
     repository: https://charts.bitnami.com/bitnami
-    version: 3.6.2
+    version: 7.3.2
   - name: postgresql
     condition: postgresql.enabled
     repository: https://charts.bitnami.com/bitnami
@@ -12,7 +12,7 @@ dependencies:
   - name: rabbitmq
     condition: rabbitmq.enabled
     repository: https://charts.bitnami.com/bitnami
-    version: 7.5.6
+    version: 8.22.1
   - name: redis
     condition: redis.enabled
     repository: https://charts.bitnami.com/bitnami
