@@ -47,7 +47,11 @@ Generate the MAYAN_CELERY_BROKEN_URL environment variable
 {{- if .Values.rabbitmq.enabled -}}
 MAYAN_CELERY_BROKER_URL: "{{- if .Values.rabbitmq.auth.tls.enabled -}}amqps{{- else -}}amqp{{- end -}}://{{ .Values.rabbitmq.auth.username }}:{{ .Values.rabbitmq.auth.password }}@{{ template "mayan.rabbitmq.host" . }}:{{- if .Values.rabbitmq.auth.tls.enabled -}}{{ .Values.rabbitmq.service.tlsPort }}{{- else -}}{{ .Values.rabbitmq.service.port }}{{- end -}}"
 {{- else -}}
+{{- if .Values.redis.enabled -}}
+MAYAN_CELERY_BROKER_URL: "redis://:{{ .Values.redis.password }}@{{ template "mayan.redis.host" . }}:{{ .Values.redis.redisPort }}/2"
+{{- else -}}
 MAYAN_CELERY_BROKER_URL: "{{ .Values.secrets.MAYAN_CELERY_BROKER_URL }}"
+{{- end -}}
 {{- end -}}
 {{- end -}}
 
