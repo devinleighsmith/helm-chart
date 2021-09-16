@@ -1,14 +1,10 @@
 {{- if .Values.frontend.ingress.enabled -}}
 {{- $fullName := include "mayan.fullname" . -}}
 {{- $svcPort := .Values.frontend.service.port -}}
-{{- if semverCompare ">=1.14-0" .Capabilities.KubeVersion.GitVersion -}}
-apiVersion: networking.k8s.io/v1beta1
-{{- else -}}
-apiVersion: extensions/v1beta1
-{{- end }}
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: {{ $fullName }}-frontend
+  name: {{ $fullName }}-frontend-ingress
   labels:
     {{- include "mayan.labels" . | nindent 4 }}
   {{- with .Values.frontend.ingress.annotations }}
@@ -42,9 +38,12 @@ spec:
         paths:
           {{- range .paths }}
           - path: {{ . }}
+            pathType: Prefix
             backend:
-              serviceName: {{ $fullName }}-frontend
-              servicePort: {{ $svcPort }}
+              service:
+                name: {{ $fullName }}-frontend
+                port:
+                  number: {{ $svcPort }}
           {{- end }}
     {{- end }}
 
