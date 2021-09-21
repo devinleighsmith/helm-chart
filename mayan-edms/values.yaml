@@ -496,3 +496,4 @@ letsencrypt:
   email: roberto.rosario@mayan-edms.com
   enabled: false
   production: false
+  issuerHTTPSolverIngressClass: nginx
