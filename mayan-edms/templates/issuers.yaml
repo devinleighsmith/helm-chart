@@ -21,7 +21,7 @@ spec:
     solvers:
     - http01:
         ingress:
-          class: nginx
+          class: {{ .Values.letsencrypt.issuerHTTPSolverIngressClass }}
       selector:
         dnsNames:
         - '{{ .Values.letsencrypt.domain }}'
