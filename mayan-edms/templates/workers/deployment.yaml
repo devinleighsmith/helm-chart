@@ -3,6 +3,9 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ include "mayan.fullname" $ }}-{{ $worker }}
+  labels:
+    {{- include "mayan.labels" $ | nindent 4 }}
+    app.kubernetes.io/component: {{ $worker }}
 spec:
 {{- if not $workerData.autoscaling.enabled }}
   replicas: {{ $workerData.replicaCount }}

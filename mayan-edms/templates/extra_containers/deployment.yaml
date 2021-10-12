@@ -4,6 +4,9 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ include "mayan.fullname" $ }}-{{ $container }}
+  labels:
+    {{- include "mayan.labels" $ | nindent 4 }}
+    app.kubernetes.io/component: {{ $container }}
 spec:
 {{- if not $containerData.autoscaling.enabled }}
   replicas: {{ $containerData.replicaCount }}
