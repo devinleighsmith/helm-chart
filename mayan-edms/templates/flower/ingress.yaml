@@ -7,6 +7,7 @@ metadata:
   name: {{ $fullName }}-flower
   labels:
     {{- include "mayan.labels" . | nindent 4 }}
+    app.kubernetes.io/component: flower
   {{- with .Values.flower.ingress.annotations }}
   annotations:
     {{- toYaml . | nindent 4 }}
