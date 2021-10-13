@@ -11,6 +11,7 @@ metadata:
   name: {{ $fullName }}-frontend
   labels:
     {{- include "mayan.labels" . | nindent 4 }}
+    app.kubernetes.io/component: frontend
   {{- with .Values.frontend.ingress.annotations }}
   annotations:
     {{- toYaml . | nindent 4 }}
