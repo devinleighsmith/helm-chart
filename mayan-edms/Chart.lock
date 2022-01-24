@@ -1,4 +1,7 @@
 dependencies:
+- name: elasticsearch
+  repository: https://charts.bitnami.com/bitnami
+  version: 17.7.2
 - name: minio
   repository: https://charts.bitnami.com/bitnami
   version: 7.3.2
