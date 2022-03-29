@@ -1,4 +1,4 @@
-4.2 (2022-XX-XX)
+4.2 (2022-03-29)
 ================
 - Update for Mayan EDMS 4.2.
 - Add support for quoted arguments for workers.
