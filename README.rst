@@ -401,6 +401,12 @@ Frontend
 
   Default: ``{}``
 
+- ``frontend.service.type``
+
+  Service type used when exposing the frontend.
+
+  Default: ``ClusterIP``
+
 
 ===
 SSL

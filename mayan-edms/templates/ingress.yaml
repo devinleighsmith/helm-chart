@@ -1,10 +1,6 @@
 {{- if .Values.ingress.enabled -}}
 {{- $fullName := include "mayan.fullname" . -}}
-{{- if semverCompare ">=1.14-0" .Capabilities.KubeVersion.GitVersion -}}
-apiVersion: networking.k8s.io/v1beta1
-{{- else -}}
-apiVersion: extensions/v1beta1
-{{- end }}
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: {{ $fullName }}
@@ -31,9 +27,12 @@ spec:
         paths:
           {{- range $key, $val := .Values.ingress.paths }}
           - path: {{ $key }}
+            pathType: Prefix
             backend:
-              serviceName: {{ $fullName }}-{{ $val.serviceName }}
-              servicePort: {{ $val.servicePort }}
+              service:
+                name: {{ $fullName }}-{{ $val.serviceName }}
+                port:
+                  number: {{ $val.servicePort }}
           {{- end }}
 
 {{- end }}
