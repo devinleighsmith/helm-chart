@@ -21,7 +21,7 @@ dependencies:
     condition: redis.enabled
     repository: https://charts.bitnami.com/bitnami
     version: 10.6.2
-description: A Helm chart for Mayan EDMS
+description: Official Helm chart for Mayan EDMS
 home: https://www.mayan-edms.com/
 icon: https://www.mayan-edms.com/favicon.ico
 keywords:
