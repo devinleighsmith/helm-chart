@@ -1,3 +1,6 @@
+#!make
+include config.env
+
 help:
 	@echo "Usage: make <target>\n"
 	@awk 'BEGIN {FS = ":.*##"} /^[0-9a-zA-Z_-]+:.*?## / { printf "  * %-40s -%s\n", $$1, $$2 }' $(MAKEFILE_LIST)|sort
@@ -13,3 +16,9 @@ minikube-upgrade:
 minikube-uninstall: ## Uninstall the development release from the local minikube cluster.
 minikube-uninstall:
 	helm uninstall development
+
+helm-package: ## Create a Helm repository package.
+helm-package: 
+	helm package mayan-edms --app-version ${HELM_PACKAGE_VERSION} --destination ./build
+	helm repo index build/ --url ${HELM_REPO_URL}
+
